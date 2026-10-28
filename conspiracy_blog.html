@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Underground Advanced</title>
+    <style>
+        /* Base Body Styles & Grunge Background Simulation */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #111;
+            /* Simulating a dark, textured marble/grunge background with overlapping gradients */
+            background-image: 
+                radial-gradient(circle at 50% 50%, #2a2a2a 0%, #000 80%),
+                repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 4px);
+            background-attachment: fixed;
+            color: #000;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 40px 20px 20px 20px;
+            background: rgba(0, 0, 0, 0.6); /* Slight darkening behind text for readability */
+            border-bottom: 2px solid #333;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+        }
+
+        .site-title {
+            font-family: Impact, "Arial Black", sans-serif;
+            font-size: 4rem;
+            color: #c9af82; /* Muted tan/gold */
+            margin: 0;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            /* Distressed drop shadow effect */
+            text-shadow: 2px 2px 4px #000, -1px -1px 0 #4a3e26;
+        }
+
+        .site-subtitle {
+            font-family: "Trebuchet MS", Arial, sans-serif;
+            font-size: 1.4rem;
+            color: #d3d3d3; /* Light gray */
+            margin: 10px 0 0 0;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        /* Main Content Container */
+        .container {
+            background-color: #ffffff;
+            max-width: 750px;
+            margin: 0 auto 50px auto;
+            padding: 40px 50px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+            box-sizing: border-box;
+        }
+
+        /* Typography */
+        h1.headline {
+            color: #8b0000; /* Dark red */
+            font-size: 2.6rem;
+            font-weight: 900;
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        h2.subheadline {
+            font-size: 1.8rem;
+            text-decoration: underline;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .content {
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .large-bold {
+            font-size: 1.7rem;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        /* Highlight effect */
+        .highlight {
+            background-color: #f7ea5e; /* Bright yellow highlighter */
+            font-weight: bold;
+            padding: 0 4px;
+        }
+
+        /* Floated Image */
+        .floated-img-container {
+            float: right;
+            width: 220px;
+            margin: 0 0 20px 30px;
+            text-align: center;
+        }
+
+        .floated-img-container img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #000;
+            display: block;
+        }
+
+        .caption {
+            font-size: 0.75rem;
+            margin-top: 5px;
+            line-height: 1.2;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Clearfix */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .site-title { font-size: 2.5rem; }
+            .site-subtitle { font-size: 1rem; }
+            .container { padding: 20px; }
+            h1.headline { font-size: 2rem; }
+            .floated-img-container {
+                float: none;
+                margin: 0 auto 20px auto;
+            }
+        }
+
+        /* New SPA & Navigation Styles */
+        .main-nav {
+            text-align: center;
+            margin-bottom: 30px;
+            background: #000;
+            padding: 10px;
+            border: 2px solid #4a3e26;
+        }
+        .main-nav a {
+            color: #c9af82;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            font-family: "Trebuchet MS", Arial, sans-serif;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            display: inline-block;
+            padding: 5px 0;
+        }
+        .main-nav a:hover {
+            color: #fff;
+            text-decoration: underline;
+            text-shadow: 0 0 5px #f7ea5e;
+        }
+        .article-content {
+            display: none; /* Hidden by default */
+        }
+        .article-content.active {
+            display: block;
+        }
+        .view-count-display {
+            background: #000;
+            color: #0f0; /* Retro terminal green */
+            font-family: "Courier New", Courier, monospace;
+            padding: 5px 10px;
+            display: inline-block;
+            border: 1px solid #333;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: inset 0 0 5px #000;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="site-title" href="#home" onclick="showArticle('home'); return false;">THE UNDERGROUND ADVANCED</h1>
+        <p class="site-subtitle">Uncovering the Truth They Don't Want You to Know</p>
+    </header>
+
+    <div class="container clearfix">
+        <!-- Home splash -->
+        <article id="article-home" class="article-content active">
+            <h1 class="headline">And this, dear readers, is how civilizations collapse.</h1>
+            <h2 class="subheadline">THE BABY QUESTION</h2>
+            
+            <div class="content">
+                <div class="floated-img-container">
+                    <!-- Using the specific filename you requested -->
+                    <img src="logan.png" alt="Profile of Logan">
+                    <div class="caption">LOGAN: Why is DDC hiding<br>his secrets?</div>
+                </div>                
+
+                <p>Perhaps the most disturbing development in the <strong>Logan</strong> saga is the question that <strong>nobody at DDC</strong> seems willing to ask:</p>
+                
+                <div class="large-bold">Where did Logan get his baby?</div>
+
+                <p>We published our initial investigation <strong>on this matter matter received an unprecedented <span class="highlight">35 views. THIRTY-FIVE. The people are awake.</span></strong></p>
+
+                <p>Logan has since attempted to have this publication blocked by IT.</p>
+
+                <p><strong>Coincidence?</strong></p>
+
+                <p>We think not.</p>
+            </div>
+        </article>
+
+        <!-- Article 1: Logan -->
+        <article id="article-logan" class="article-content active">
+            <div class="view-count-display">SECURE VIEW COUNT: <span id="views-logan">35</span></div>
+            <h1 class="headline">Where did Logan get his baby????</h1>
+
+            <div class="content">
+                <div class="floated-img-container">
+                    <!-- Using the specific filename you requested -->
+                    <img src="spy-baby.png" alt="spy baby stock image">
+                </div>         
+                
+                <p>Let's examine the infant in question. Notice how it refuses to speak, communicating only in coded vocalizations and strategic crying. </p>
+                
+                <p>Has anyone else noticed that the baby's nap schedule perfectly aligns with the mandatory server maintenance downtime? What systems is the infant bypassing while we are locked out of the network?</p>
+
+                <p>The fact that nobody is asking these questions is exactly why we must. Keep sharing the truth.</p>
+
+            </div>
+        </article>
+
+        <!-- Article 2: Dave -->
+        <article id="article-dave" class="article-content">
+            <div class="view-count-display">SECURE VIEW COUNT: <span id="views-dave">7</span></div>
+            <h1 class="headline">Why You Should Always Kill Dave in Night of the Ninja</h1>
+            
+            <div class="content">
+                <p>Listen closely. When the lights go down in <em>Night of the Ninja</em>, the sheep follow the rules. But the wolves? We know the truth about <strong>DAVE</strong>.</p>
+                
+                <p>Historical game data over the last 47 sessions proves a startling anomaly: when Dave survives round one, the structural integrity of the alliance network collapses by 84%.</p>
+                <div class="floated-img-container">
+                    <img src="ninja-dave.png" alt="Profile of Dave">
+                    <!-- <div class="caption">KATIE: What is she hiding<br>in those shoes?</div> -->
+                </div>
+                
+                <div class="large-bold">Dave is the shadow operating within the shadows.</div>
+                
+                <p>He claims to be the Lotus. He claims to be the Crane. But look at his eyes. There is no remorse.</p>
+                
+                <p>Do not let him speak. Do not let him bargain. Strike first.</p>
+            </div>
+        </article>
+
+        <!-- Article 3: Katie -->
+        <article id="article-katie" class="article-content">
+            <div class="view-count-display">SECURE VIEW COUNT: <span id="views-katie">11</span></div>
+            <h1 class="headline">WHAT KATIE REALLY DOES IN VEGAS</h1>
+            <div class="large-bold">The booth tables are a front.</div>
+            
+            <div class="content">
+                <p>They tell us she goes for the tradeshows.<strong>WAKE UP.</strong></p>
+
+                <p>Flight records and triangulated geo-data suggest a completely different narrative. Every time Katie touches down in McCarran International, localized magnetic anomalies spike.</p>
+                
+                <div class="floated-img-container">
+                    <img src="vegas.jpg" alt="Profile of Katie">
+                    <div class="caption">KATIE: What is she hiding<br>in her shoes? More chips?</div>
+                </div>
+                
+                <p>We have recovered fragmented casino security footage showing Katie communicating in what appears to be <span class="highlight">highly advanced subterranean Morse code</span> via chip placement.</p>
+                
+                <p>Who is she signaling? The lizard-folk of the Mojave? Or the deep-state operatives hiding in the fountains?</p>
+                
+                <div class="large-bold">We are still decoding the chips.</div>
+                
+                <p>But we know this: what happens in Vegas, is currently destabilizing the global economy.</p>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <p class="site-subtitle">Most Popular Articles:</p>
+        <a href="#logan" onclick="showArticle('logan'); return false;">Where did Logan Get His Baby?</a>
+        <a href="#dave" onclick="showArticle('dave'); return false;">Kill Dave (Night of the Ninja)</a>
+        <a href="#katie" onclick="showArticle('katie'); return false;">What Katie REALLY Does in Vegas</a>
+    </nav>
+
+    <script>
+        function showArticle(articleId) {
+            // Hide all articles
+            document.querySelectorAll('.article-content').forEach(function(article) {
+                article.classList.remove('active');
+            });
+            
+            // Show the selected article
+            document.getElementById('article-' + articleId).classList.add('active');
+
+            // Update URL hash for easy sharing of specific articles without reloading
+            window.location.hash = articleId;
+        }
+
+        // Initialize the page on load
+        window.onload = function() {
+            // Check if a specific article was linked via hash (e.g., #dave)
+            let hash = window.location.hash.substring(1);
+            let validArticles = ['home', 'logan', 'dave', 'katie'];
+            
+            if (hash && validArticles.includes(hash)) {
+                showArticle(hash);
+            } else {
+                // Default to Logan
+                showArticle('home');
+            }
+        };
+    </script>
+</body>
+</html>
